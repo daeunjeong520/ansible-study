@@ -1,0 +1,10 @@
+[web]
+rocky.example.com
+ubuntu.example.com
+
+[db]
+kali.example.com
+
+[all:children]
+web
+db
