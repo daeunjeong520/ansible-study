@@ -1,0 +1,14 @@
+---
+- hosts: all
+  tasks:
+    - name: "Print common used ansible facts"
+      ansible.builtin.debug:
+        msg:
+          - "Hostname: {{ ansible_facts.hostname }}"
+          - "Domain Hostname: {{ ansible_facts.fqdn }}"
+          - "Default IP Address: {{ ansible_facts.default_ipv4.address }}"
+          - "Network Interface list: {{ ansible_facts.interfaces }}"
+          - "Disk /dev/sda size {{ ansible_facts.devices.sda.partitions.sda1.size }}"
+          - "DNS servers {{ ansible_facts.dns.nameservers }}"
+          - "Kernel version {{ ansible_facts.kernel }}"
+          - "OS Distribution {{ ansible_facts.distribution }}"

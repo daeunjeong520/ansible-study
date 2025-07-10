@@ -1,0 +1,18 @@
+---
+- hosts: all
+  gather_facts: no
+
+  tasks:
+    - name: "Filter and return only selected facts"
+      ansible.builtin.setup:
+        filter:
+          - 'ansible_default_ipv4'
+          - 'ansible_date_time'
+          - 'ansible_hostname'
+
+    - name: "Print Selected Facts"
+      ansible.builtin.debug:
+        msg:
+          - "{{ ansible_facts.default_ipv4.address }}"
+          - "{{ ansible_facts.date_time.date }}"
+          - "{{ ansible_facts.hostname }}"
